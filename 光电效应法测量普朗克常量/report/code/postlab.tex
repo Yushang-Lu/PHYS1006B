@@ -1,0 +1,141 @@
+\documentclass{article}
+\usepackage[paperwidth=595.3bp,paperheight=841.9bp,margin=0bp]{geometry}
+\usepackage{fontspec,xeCJK,amsmath,graphicx,booktabs,eso-pic}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{unicode-math}
+\setmainfont{Times New Roman}
+\setmathfont{texgyretermes-math.otf}
+\newcommand{\ReportFontPath}{/Users/jinana/Library/Containers/com.kingsoft.wpsoffice.mac/Data/.kingsoft/office6/data/fonts/online_ext_font_cache/}
+\setCJKmainfont{HYShuSongErKW.ttf}[Path=\ReportFontPath,BoldFont=HYZhongHeiKW.ttf]
+\xeCJKsetup{CJKmath=true}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3bp}
+\setlength{\abovedisplayskip}{3bp}
+\setlength{\belowdisplayskip}{3bp}
+\setlength{\abovedisplayshortskip}{3bp}
+\setlength{\belowdisplayshortskip}{3bp}
+\setlength{\TPHorizModule}{1bp}
+\setlength{\TPVertModule}{1bp}
+\textblockorigin{0bp}{0bp}
+\newcommand{\TemplatePage}[1]{%
+  \AddToShipoutPictureBG*{\AtPageLowerLeft{%
+    \includegraphics[page=#1,width=\paperwidth,height=\paperheight]{main.pdf}%
+  }}%
+}
+\newenvironment{AnswerBlock}[2]{%
+  \begin{textblock*}{415.3bp}(90bp,#1bp)
+  \fontsize{#2bp}{13.5bp}\selectfont
+  \setlength{\abovedisplayskip}{4bp}
+  \setlength{\belowdisplayskip}{4bp}
+  \setlength{\abovedisplayshortskip}{3bp}
+  \setlength{\belowdisplayshortskip}{3bp}
+}{\end{textblock*}}
+\input{assets/results_rows.tex}
+
+\begin{document}
+\TemplatePage{3}
+\begin{AnswerBlock}{162}{9.5}
+\textbf{1. 最小二乘法与作图法}
+
+以截止电压大小 $U_0=|U_c|$ 对 $x=\nu/(10^{14}\,\mathrm{Hz})$
+作最小二乘拟合 $U_0=ax+b$，斜率和截距为
+\[
+ a=\frac{5\sum x_iU_{0i}-(\sum x_i)(\sum U_{0i})}
+         {5\sum x_i^2-(\sum x_i)^2},\qquad
+ b=\overline U_0-a\overline x .
+\]
+作图法采用分组平均点连线：低频两点均值为 $A$，高频两点均值为 $B$，
+中间点用于检验直线趋势。两点横坐标为 $x_A=5.344$、$x_B=7.813$。
+按 2、4、8 mm 顺序，$U_A$ 为 $(0.665,\,0.645,\,0.570)\,\mathrm V$，
+$U_B$ 为 $(1.600,\,1.672,\,1.583)\,\mathrm V$。
+按指导书取 $e=1.602\times10^{-19}\,\mathrm C$、
+$h_0=6.626\times10^{-34}\,\mathrm{J\,s}$，分别计算：
+\[
+ a_{\text{图}}=\frac{U_B-U_A}{7.813-5.344},\qquad
+ h=e\,a\times10^{-14}\,\mathrm s,\qquad
+ \varepsilon=\frac{|h-h_0|}{h_0}\times100\%.
+\]
+\includegraphics[width=\linewidth]{assets/stopping_voltage.pdf}
+\vspace{-8bp}
+
+\textbf{2. 计算结果}\quad $a,b$ 的单位为 V，表中 $h$ 的单位为
+$10^{-34}\,\mathrm{J\,s}$，$\varepsilon$ 的单位为 \%。
+\par
+{\centering
+\setlength{\tabcolsep}{6bp}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{crrrrrr}
+\toprule
+光阑/mm & $a_{\text{最小二乘}}$ & $b_{\text{最小二乘}}$ &
+$h_{\text{最小二乘}}$ & $\varepsilon_{\text{最小二乘}}$ &
+$h_{\text{图}}$ & $\varepsilon_{\text{图}}$\\
+\midrule
+\ResultsRows
+\bottomrule
+\end{tabular}
+\par}
+\end{AnswerBlock}
+
+\begin{AnswerBlock}{636}{9.5}
+三组数据均呈 $U_0$ 随频率增大而近似线性增大的趋势，与光电效应方程相符。
+最小二乘法中 8 mm 组最接近参考值；作图法中 4 mm 组最接近参考值。
+
+三组中间频段的数据均低于最小二乘直线，提示可能存在系统偏差。
+暗／本底电流的测量与漂移、补偿终点的判定、滤光片带宽及杂散光均可能影响结果。
+恒定电压偏置主要改变截距，随频率变化的偏差还会改变斜率。
+
+最小二乘法利用全部五点，结果客观、可重复，但受异常点和系统误差影响；
+作图法直观，便于检查趋势，但取点方式和读图精度会影响结果，本次分组法也未将中间点用于定线。
+\end{AnswerBlock}
+\null\newpage
+
+\TemplatePage{4}
+\begin{AnswerBlock}{194}{10.45}
+\textbf{1. 逸出功的含义及其求法}
+
+逸出功 $A$（题中亦记作 $W$）是电子从金属费米能级逸出到表面外真空所需的最小能量。
+在理想条件下，爱因斯坦光电效应方程给出
+\[
+ eU_0=h\nu-W,\qquad U_0=\frac{h}{e}\nu-\frac{W}{e}.
+\]
+因此，若以 $\nu$ 为横坐标拟合 $U_0=k\nu+b$，则斜率 $k=h/e$，
+纵截距 $b=-W/e$，从而
+\[
+ W=-eb,\qquad W\text{（以 eV 表示的数值）}=-b\text{（以 V 表示的数值）}.
+\]
+本实验三组截距对应的表观逸出功依次为 $1.426$、$1.656$、$1.699\ \mathrm{eV}$。
+若存在接触电势差或仪器零点偏置 $\Delta U$，则
+$b=-W/e+\Delta U$，需校正该偏置后才能由截距确定材料本征逸出功。
+
+\vspace{12bp}
+\textbf{2. 不同金属的逸出功}
+
+不同金属的逸出功一般不同，因为其电子结构和表面势垒不同。
+费米能级相对于真空能级越低，即电子逸出所需跨越的能量差越大，逸出功就越大。
+同一金属的不同晶面、表面吸附及氧化状态也会使逸出功发生变化，
+因而不能仅凭金属名称或导电性判断其大小。
+
+\vspace{12bp}
+\textbf{3. 真实实验中影响结果的因素}
+
+\textbf{光源与光路：}
+光源强度波动、滤光片有限带宽和漏光、杂散光及光路对准误差，
+会影响有效入射光谱及微弱光电流的测量。
+
+\textbf{光电管与表面：}
+阴极表面氧化、吸附和不均匀性会改变逸出功；
+电极接触电势差、暗电流和阳极反向光电流会改变实际截止判据。
+
+\textbf{仪器与操作：}
+电压、电流读数的分辨率与零点漂移，电压步进、环境漏电及未充分稳定就读数，
+均会使截止电压产生偏差。
+
+理想截止电压只由光频率和材料逸出功决定，不随光强改变。
+补偿法以开灯时实测电流等于遮灯时测得的暗／本底电流为终点，
+对应扣除本底后的光电流为零，而非直接令开灯时实测电流为零。
+本底电流测量误差及其漂移会影响补偿结果；改变光阑还会改变信号大小及终点判定精度，
+因此不同光阑下的截止电压差异不能直接视为理想截止电压对光强的依赖。
+\end{AnswerBlock}
+\null
+\end{document}

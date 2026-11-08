@@ -1,0 +1,196 @@
+\documentclass{article}
+\usepackage[paperwidth=595.3bp,paperheight=841.9bp,margin=0bp]{geometry}
+\usepackage{fontspec}
+\usepackage{eso-pic}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\unitlength}{1bp}
+
+\providecommand{\WPSFontPath}{/Users/jinana/Library/Containers/com.kingsoft.wpsoffice.mac/Data/.kingsoft/office6/data/fonts/online_ext_font_cache/}
+\providecommand{\WPSAppFontPath}{/Applications/wpsoffice.app/Contents/Resources/office6/fonts/}
+\providecommand{\TimesFontPath}{/System/Library/Fonts/Supplemental/}
+\defaultfontfeatures{Ligatures=NoCommon}
+\setmainfont{Times New Roman.ttf}[Path=\TimesFontPath]
+\newfontfamily{\Times}{Times New Roman.ttf}[Path=\TimesFontPath]
+\newfontfamily{\RomanItalic}{Times New Roman Italic.ttf}[Path=\TimesFontPath]
+\newfontfamily{\RomanHeavy}{Times New Roman.ttf}[Path=\TimesFontPath,FakeBold=2.86,LetterSpace=0.23923]
+\newfontfamily{\Song}{HYShuSongErKW.ttf}[Path=\WPSFontPath]
+\newfontfamily{\BodySong}{HYShuSongErKW.ttf}[Path=\WPSFontPath,LetterSpace=0.47847]
+\newfontfamily{\SongHeavy}{HYShuSongErKW.ttf}[Path=\WPSFontPath,FakeBold=2.86]
+\newfontfamily{\Hei}{HYZhongHeiKW.ttf}[Path=\WPSFontPath,FakeBold=2.86]
+\newfontfamily{\UnderlineHei}{HYZhongHeiKW.ttf}[Path=\WPSFontPath,FakeBold=2.86,LetterSpace=0.34928]
+\newfontfamily{\BodyHei}{HYZhongHeiKW.ttf}[Path=\WPSFontPath,FakeBold=2.86,LetterSpace=0.47847]
+\newfontfamily{\Kai}{HYKaiTiKW.ttf}[Path=\WPSFontPath]
+\newfontfamily{\KaiHeavy}{HYKaiTiKW.ttf}[Path=\WPSFontPath,FakeBold=2.86]
+\newfontfamily{\Deng}{HYZhongDengXianKW.ttf}[Path=\WPSFontPath]
+\begingroup
+\tracinglostchars=0
+\global\font\FrequencyFont="[\WPSAppFontPath KingsoftSign.ttf]" at 9bp
+\endgroup
+\iffontchar\FrequencyFont"F06E\else
+  \PackageError{report}{The frequency symbol is missing from KingsoftSign}{Check WPSAppFontPath.}
+\fi
+
+\newcommand{\Text}[5]{%
+  \put(#1,-#2){\hbox{{#3\fontsize{#4bp}{#4bp}\selectfont #5}}}%
+}
+\newcommand{\Rule}[4]{%
+  \put(#1,-#2){\rule[-#4bp]{#3bp}{#4bp}}%
+}
+\newcommand{\Heading}[3]{\Text{90}{#1}{\BodyHei}{10.45}{#2．\kern0.3bp #3}}
+\newcommand{\PageFrame}[1]{%
+  \Text{90}{54.29}{\Kai}{12}{大学物理实验报告}%
+  \Text{384}{54.29}{\Kai}{12}{哈尔滨工业大学(深圳)}%
+  \Rule{90}{59.15}{415.3}{0.72}%
+  \Text{500.759}{776.69}{\Deng}{9}{#1}%
+}
+\newcommand{\ReportPage}[2]{%
+  \AddToShipoutPictureFG*{\AtPageUpperLeft{%
+    \setlength{\unitlength}{1bp}%
+    \PageFrame{#1}%
+    #2%
+  }}%
+  \null\newpage
+}
+\newcommand{\TableGrid}{%
+  \Rule{103.96}{131.05}{397.38}{0.48}%
+  \Rule{103.96}{154.95}{397.38}{0.48}%
+  \Rule{103.96}{178.85}{397.38}{0.48}%
+  \Rule{103.96}{202.75}{397.38}{0.48}%
+  \Rule{103.96}{131.05}{0.48}{71.7}%
+  \Rule{217.36}{131.05}{0.48}{71.7}%
+  \Rule{274.06}{131.05}{0.48}{71.7}%
+  \Rule{330.76}{131.05}{0.48}{71.7}%
+  \Rule{387.46}{131.05}{0.48}{71.7}%
+  \Rule{444.16}{131.05}{0.48}{71.7}%
+  \Rule{500.86}{131.05}{0.48}{71.7}%
+}
+\newcommand{\MeasurementTable}[3]{%
+  \put(0,-#1){\begin{picture}(0,0)
+    \Text{209.04}{122.33}{\Song}{9}{表}%
+    \Text{220.2}{122.209}{\Times}{9}{2-#2}%
+    \Text{236.64}{122.33}{\Song}{9}{截止电压测量（光阑孔直径}%
+    \Text{349.2}{122.209}{\Times}{9}{=}%
+    \Text{356.52}{122.209}{\Times}{9}{#3}%
+    \Text{363.24}{122.209}{\Times}{9}{mm}%
+    \Text{377.28}{122.33}{\Song}{9}{）}%
+    \TableGrid
+    \Text{109.559}{146.209}{\Song}{9}{光波长}%
+    \Text{136.559}{146.09}{\RomanItalic}{9}{λ}%
+    \Text{140.4}{146.209}{\Song}{9}{（}%
+    \Text{149.4}{146.09}{\Times}{9}{nm}%
+    \Text{160.92}{146.209}{\Song}{9}{）}%
+    \Text{235.8}{146.45}{\Times}{9}{365.0}%
+    \Text{292.44}{146.45}{\Times}{9}{404.7}%
+    \Text{349.2}{146.45}{\Times}{9}{435.8}%
+    \Text{405.84}{146.45}{\Times}{9}{546.1}%
+    \Text{462.6}{146.45}{\Times}{9}{577.0}%
+    \Text{109.559}{170.209}{\Song}{9}{光频率}%
+    \Text{135.928}{170.209}{\Times}{9}{{\FrequencyFont\char"F06E}}%
+    \Text{143.52}{170.209}{\Times}{9}{(×}%
+    \Text{153.84}{170.209}{\Times}{9}{10}%
+    \Text{162.84}{167.209}{\Times}{5.75}{14}%
+    \Text{168.6}{170.209}{\Times}{9}{Hz)}%
+    \Text{235.8}{170.33}{\Times}{9}{8.216}%
+    \Text{292.44}{170.33}{\Times}{9}{7.410}%
+    \Text{349.2}{170.33}{\Times}{9}{6.882}%
+    \Text{405.84}{170.33}{\Times}{9}{5.492}%
+    \Text{462.6}{170.33}{\Times}{9}{5.196}%
+    \Text{109.559}{193.97}{\Song}{9}{截止电压}%
+    \Text{147.84}{193.97}{\RomanItalic}{9}{U}%
+    \Text{154.32}{194.69}{\Times}{5.75}{c}%
+    \Text{156.84}{193.97}{\Song}{9}{（}%
+    \Text{165.84}{193.97}{\Times}{9}{V}%
+    \Text{172.44}{193.97}{\Song}{9}{）}%
+  \end{picture}}%
+}
+\newcommand{\SignatureTable}{%
+  \Rule{354.86}{619.15}{156.08}{0.48}%
+  \Rule{354.86}{650.85}{156.08}{0.48}%
+  \Rule{354.86}{682.55}{156.08}{0.48}%
+  \Rule{354.86}{619.15}{0.48}{63.4}%
+  \Rule{432.66}{619.15}{0.48}{63.4}%
+  \Rule{510.46}{619.15}{0.48}{63.4}%
+  \Text{379.919}{639.89}{\SongHeavy}{14.05}{教师}%
+  \Text{457.8}{639.89}{\SongHeavy}{14.05}{姓名}%
+  \Text{378}{672.29}{\KaiHeavy}{15.95}{签字}%
+}
+
+\begin{document}
+\ReportPage{1}{%
+  \Text{90}{90.05}{\BodyHei}{10.45}{班级}%
+  \Text{111}{90.05}{\RomanHeavy}{10.45}{\_\_\_\_\_\_\_\_\_\_\_}%
+  \Text{184.44}{90.05}{\BodyHei}{10.45}{学号}%
+  \Text{205.44}{90.05}{\RomanHeavy}{10.45}{\_\_\_\_\_\_\_\_\_\_\_\_\_\_}%
+  \Text{294.72}{90.05}{\BodyHei}{10.45}{姓名}%
+  \Text{315.84}{90.05}{\RomanHeavy}{10.45}{\_\_\_\_\_\_\_\_\_\_\_\_}%
+  \Text{394.559}{90.05}{\BodyHei}{10.45}{教师签字}%
+  \Text{436.559}{90.05}{\RomanHeavy}{10.45}{\_\_\_\_\_\_\_\_\_\_\_\_}%
+  \Text{90}{118.25}{\BodyHei}{10.45}{实验日期}%
+  \Text{132}{118.25}{\UnderlineHei}{10.45}{\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}%
+  \Text{304.8}{118.25}{\BodyHei}{10.45}{预习成绩}%
+  \Text{346.92}{118.25}{\UnderlineHei}{10.45}{\_\_\_\_\_\_\_\_\_}%
+  \Text{407.64}{118.25}{\BodyHei}{10.45}{总成绩}%
+  \Text{90}{138.77}{\UnderlineHei}{10.45}{\_\_\_\_\_\_\_\_\_\_\_\_\_\_}%
+  \Rule{90}{168.1}{415.3}{0.72}%
+  \Rule{88.7}{170.625}{417.95}{0.75}%
+  \Text{195.6}{214.609}{\Hei}{12}{实验名称}%
+  \Text{255.6}{214.609}{\Hei}{12}{光电效应法测定普朗克常量}%
+  \Heading{249.409}{一}{实验预习}%
+  \Text{111.959}{268.009}{\Times}{10.45}{1.}%
+  \Text{129.959}{268.009}{\BodySong}{10.45}{爱因斯坦光是如何解释光电效应实验现象的？}%
+  \Text{111.959}{288.53}{\Times}{10.45}{2.}%
+  \Text{129.959}{288.53}{\BodySong}{10.45}{截止电压的定义是什么，简述其物理意义。}%
+}
+\ReportPage{2}{%
+  \Heading{87.05}{二}{实验现象及原始数据记录}%
+  \MeasurementTable{0}{1}{2}%
+  \MeasurementTable{105.3}{2}{4}%
+  \MeasurementTable{213.15}{3}{8}%
+  \SignatureTable
+}
+\ReportPage{3}{%
+  \Heading{87.05}{三}{数据处理}%
+  \Text{111}{105.65}{\Hei}{10.45}{（}%
+  \Text{121.44}{105.65}{\BodySong}{10.45}{在三个不同直径的光阑孔下分别测量对应各个光频率}%
+  \Text{365.64}{105.65}{\RomanItalic}{10.45}{v}%
+  \Text{372.84}{105.65}{\BodySong}{10.45}{的截止电压}%
+  \Text{428.04}{105.65}{\RomanItalic}{10.45}{U}%
+  \Text{435.6}{106.49}{\Times}{6.85}{0}%
+  \Text{438.959}{105.65}{\BodySong}{10.45}{，找出两者的}%
+  \Text{90}{126.05}{\BodySong}{10.45}{线性关系。用最小二乘法与作图法求出普朗克常数}%
+  \Text{323.64}{126.05}{\RomanItalic}{10.45}{h}%
+  \Text{331.44}{126.05}{\BodySong}{10.45}{的实验值，以及与普朗克常数标准值}%
+  \Text{90}{146.57}{\RomanItalic}{10.45}{h}%
+  \Text{95.28}{147.409}{\Times}{6.85}{0}%
+  \Text{101.28}{146.57}{\Times}{10.45}{=}%
+  \Text{109.8}{146.57}{\Times}{10.45}{6.626×10}%
+  \Text{149.88}{143.09}{\Times}{6.85}{-34}%
+  \Text{158.88}{146.57}{\Times}{10.45}{J•s}%
+  \Text{173.4}{146.57}{\BodySong}{10.45}{的相对误差。}%
+  \Text{231.12}{146.57}{\Song}{10.45}{）}%
+  \Heading{593.09}{四}{实验结论及现象分析}%
+  \Text{111}{616.49}{\BodySong}{10.45}{（分析实验误差的来源，以及比较以上每种数据处理方法的优缺点）}%
+}
+\ReportPage{4}{%
+  \Heading{87.05}{五}{讨论题}%
+  \Text{111}{105.65}{\Times}{10.45}{1.}%
+  \Text{124.08}{105.65}{\BodySong}{10.45}{请解释什么是逸出功}%
+  \Text{221.28}{105.65}{\RomanItalic}{10.45}{A}%
+  \Text{227.64}{105.65}{\BodySong}{10.45}{，以及怎样可以从截止电压}%
+  \Text{356.28}{105.65}{\RomanItalic}{10.45}{U}%
+  \Text{363.84}{106.49}{\Times}{6.85}{0}%
+  \Text{369}{105.65}{\BodySong}{10.45}{与光频率}%
+  \Text{413.52}{105.65}{\RomanItalic}{10.45}{v}%
+  \Text{420.84}{105.65}{\BodySong}{10.45}{两者的线性关系中}%
+  \Text{90}{126.05}{\BodySong}{10.45}{求出逸出功}%
+  \Text{145.08}{126.05}{\RomanItalic}{10.45}{W}%
+  \Text{153.84}{126.05}{\Song}{10.45}{。}%
+  \Text{111}{146.57}{\Times}{10.45}{2.}%
+  \Text{124.08}{146.57}{\BodySong}{10.45}{请讨论一下，不同金属材料的逸出功}%
+  \Text{294.72}{146.57}{\RomanItalic}{10.45}{A}%
+  \Text{303.72}{146.57}{\BodySong}{10.45}{是否相同，什么样的材料逸出功会更大？}%
+  \Text{111}{167.09}{\Times}{10.45}{3.}%
+  \Text{124.08}{167.09}{\BodySong}{10.45}{真实环境下的光电效应实验，有哪些因素可能会影响实验结果？}%
+}
+\end{document}
