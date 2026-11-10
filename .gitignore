@@ -1,3 +1,8 @@
+## macOS metadata and Python caches:
+.DS_Store
+__pycache__/
+*.py[cod]
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

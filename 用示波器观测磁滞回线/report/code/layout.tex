@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage[paperwidth=595.3bp,paperheight=841.9bp,margin=0bp]{geometry}
+\usepackage{fontspec,eso-pic,graphicx,amsmath,booktabs,array}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\unitlength}{1bp}
+\newcommand{\FontPath}{/Users/jinana/Library/Containers/com.kingsoft.wpsoffice.mac/Data/.kingsoft/office6/data/fonts/online_ext_font_cache/}
+\defaultfontfeatures{Ligatures=NoCommon}
+\setmainfont{Times New Roman}
+\newfontfamily{\Times}{Times New Roman}
+\newfontfamily{\Italic}{Times New Roman Italic}
+\newfontfamily{\Bold}{Times New Roman Bold}
+\newfontfamily{\Song}{HYShuSongErKW.ttf}[Path=\FontPath]
+\newfontfamily{\SongHeavy}{HYShuSongErKW.ttf}[Path=\FontPath,FakeBold=2.86]
+\newfontfamily{\Hei}{HYZhongHeiKW.ttf}[Path=\FontPath,FakeBold=2.86]
+\newfontfamily{\Kai}{HYKaiTiKW.ttf}[Path=\FontPath]
+\newfontfamily{\KaiHeavy}{HYKaiTiKW.ttf}[Path=\FontPath,FakeBold=2.86]
+\newfontfamily{\Deng}{HYZhongDengXianKW.ttf}[Path=\FontPath]
+\newcommand{\ReportPage}[1]{%
+  \AddToShipoutPictureFG*{\AtPageLowerLeft{\setlength{\unitlength}{1bp}#1}}%
+  \null\newpage
+}
+\newcommand{\Block}[4]{%
+  \put(#1,\dimexpr841.9bp-#2bp\relax){\makebox(0,0)[lt]{%
+  \begin{minipage}[t]{#3bp}\fontsize{10bp}{16bp}\selectfont
+  \setlength{\parskip}{5bp}#4\end{minipage}}}%
+}

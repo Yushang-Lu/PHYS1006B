@@ -1,0 +1,61 @@
+\input{layout.tex}
+\usepackage{xeCJK}
+\usepackage{fix-cm}
+\setCJKmainfont{HYShuSongErKW.ttf}[Path=\FontPath]
+\begin{document}
+\ReportPage{%
+  \Block{90}{101}{415.3}{%
+    1. 电压换算\par
+    \input{parameters.tex}
+    \[
+      H=\frac{N_1}{LR_1}U_X,\qquad
+      B=\frac{R_2C}{N_2S}U_Y .
+    \]
+    \vspace{-7bp}
+    \begin{center}
+    \fontsize{9bp}{13bp}\selectfont
+    \setlength{\tabcolsep}{4bp}\input{conversion.tex}\par
+    表中换算式的 \(U_X,U_Y\) 均以 mV 为单位。
+    \end{center}
+  }%
+  \Block{90}{257}{415.3}{%
+    2. 饱和磁滞回线（上）与基本磁化曲线（下）\par
+    \vspace{-5bp}
+    \includegraphics[width=415.3bp]{curves.pdf}
+  }%
+  \Block{90}{502}{415.3}{%
+    3. 剩磁和矫顽力\par
+    \vspace{-3bp}
+    在过轴相邻点间作线性插值，求 \(H=0\) 时的 \(B_{r\pm}\) 和
+    \(B=0\) 时的 \(H_{c\pm}\)；两支绝对值取平均，得 \(B_r\)、\(H_c\)。\par
+    \vspace{-3bp}
+    {\centering\fontsize{8.5bp}{12bp}\selectfont
+    \setlength{\tabcolsep}{4bp}\input{results.tex}\par}
+  }%
+  \Block{90}{631}{415.3}{%
+    两样品均呈闭合磁滞回线，\(H=0\) 时仍有剩磁，需反向磁场才能使
+    \(B=0\)；基本磁化曲线随 \(H\) 增大逐渐趋缓。样品2的剩磁和矫顽力
+    均较大，回线更宽；样品1更易退磁。\par
+    主要误差来自示波器光标读数及零点偏移、过轴点间的插值近似，
+    以及 \(R_1,R_2,C,L,S\) 的参数偏差。有限的 \(R_2C\) 会使积分近似
+    带来幅值和相位误差；退磁不充分也会使回线产生偏移。
+  }%
+}
+\ReportPage{%
+  \Block{111}{247}{394.3}{%
+    主要根据矫顽力及回线形状判断：软磁材料的矫顽力小、回线窄，
+    易磁化也易退磁；硬磁材料的矫顽力大、回线宽，磁化后不易退磁，
+    适于制作永磁体。\par
+    按指导书 \(H_c\leq1000\,\mathrm{A/m}\) 的软磁判据，
+    本次两种样品均表现为软磁材料。
+  }%
+  \Block{111}{507}{394.3}{%
+    铁磁材料有磁滞，撤去外磁场后仍可能保留剩磁，使下一次测量受
+    原有磁化历史影响。退磁时施加方向交替、幅值逐渐减小的磁场，
+    使磁滞回线逐步收缩，最终使宏观剩磁趋近于零。\par
+    具体操作：保持交流励磁，先顺时针缓慢调大信号源幅度，使样品
+    达到磁饱和；再逆时针缓慢、连续调小幅度，直到示波器上的回线
+    缩为一点、励磁幅度降至零。不能用突然断电代替逐渐减小励磁。
+  }%
+}
+\end{document}
