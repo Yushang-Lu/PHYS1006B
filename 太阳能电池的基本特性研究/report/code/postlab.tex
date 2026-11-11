@@ -1,0 +1,54 @@
+\input{layout.tex}
+\usepackage{xeCJK}
+\usepackage{fix-cm}
+\setCJKmainfont{HYShuSongErKW.ttf}[Path=\FontPath]
+\begin{document}
+\ReportPage{%
+  \Block{90}{300}{415.3}{%
+    \fontsize{9bp}{13bp}\selectfont
+    记录中样品为多晶硅、非晶硅；记光强为 \(E\)，电流为 \(I\)。\par
+    \vspace{-3bp}
+    \includegraphics[width=415.3bp]{curves.pdf}
+  }%
+  \Block{90}{615}{415.3}{%
+    \fontsize{9bp}{13bp}\selectfont
+    \input{parameters.tex}\par
+    以实测功率最大点估计 \(P_{\max}\)，\(I_{\rm SC}\) 取表3零电压点；
+    \(V_{\rm OC}\) 取表2同光强读数，分别为
+    \(\input{poly_voc.tex},\ \input{amorphous_voc.tex}\,\mathrm V\)。
+    \[
+      P_{\rm o}=VI,\quad R_m=\frac{V_m}{I_m},\quad
+      FF=\frac{P_{\max}}{V_{\rm OC}I_{\rm SC}},\quad
+      \eta=\frac{P_{\max}}{SE}.
+    \]
+    \vspace{-9bp}
+    {\centering\fontsize{8.5bp}{12bp}\selectfont
+    \setlength{\tabcolsep}{4bp}\input{results.tex}\par}
+    \vspace{12bp}
+    误差主要来自光源漂移与电池受热、探头和电池的位置及受光面积差异、
+    电表内阻和接触电阻，以及峰值附近电压采样间隔较大。
+    两次测量温度或光强的变化也会影响 \(FF\)。
+  }%
+}
+\ReportPage{%
+  \Block{90}{100}{415.3}{%
+    暗态下两种电池均表现出整流特性：正向电流随电压加速增大，
+    反向电流较小。光强增大时，短路电流近似线性增大，开路电压缓慢上升。\par
+    输出电流在低电压区变化较小，接近开路时迅速下降；
+    输出功率先增后减，存在最佳负载。本次相同光强和规定面积下，
+    多晶硅电池的最大输出功率和转换效率均较高。
+  }%
+  \Block{90}{300}{415.3}{%
+    1. 对伏安曲线上各点计算 \(P=VI\)，取最大值对应的
+    \((V_m,I_m)\)，即 \(P_{\max}=V_mI_m\)，
+    最佳匹配电阻为 \(R_m=V_m/I_m\)。
+    图解上是在伏安曲线下寻找面积最大的轴平行矩形。
+    应在功率峰值附近加密测点。\par
+    2. 本次多晶硅电池的 \(P_{\max}=\input{poly_power.tex}\,\mathrm{mW}\)，
+    非晶硅为 \(\input{amorphous_power.tex}\,\mathrm{mW}\)，
+    前者约为后者的 \(\input{ratio.tex}\) 倍，主要表现为输出电流较大。
+    可能原因是晶体结构、缺陷复合、吸收层厚度和载流子收集效率不同；
+    电池的串并联结构、电阻损耗及对碘钨灯光谱的响应差异也会影响输出功率。
+  }%
+}
+\end{document}

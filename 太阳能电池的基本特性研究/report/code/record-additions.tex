@@ -1,0 +1,15 @@
+\input{layout.tex}
+\usepackage{xeCJK}
+\setCJKmainfont{HYShuSongErKW.ttf}[Path=\FontPath]
+\begin{document}
+\ReportPage{%
+  \Block{90}{400}{255}{%
+    表3续：各测量点的输出功率\par
+    \(\displaystyle P_{\rm o}=VI\)，电流由 mA 换算为 A。\par
+    {\centering\fontsize{9bp}{12bp}\selectfont
+    \setlength{\tabcolsep}{15bp}\input{power-table.tex}\par}
+  }%
+  \put(365,441.9){\makebox(0,0)[lt]{%
+    \includegraphics[width=140bp]{assets/教师签名.png}}}%
+}
+\end{document}
