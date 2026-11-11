@@ -1,0 +1,28 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,left=27mm,right=27mm,top=25mm,bottom=23mm,headheight=16pt,headsep=12pt]{geometry}
+\usepackage{fontspec,xeCJK,amsmath,graphicx,booktabs,fancyhdr}
+\usepackage{unicode-math}
+\setmainfont{Times New Roman}
+\setmathfont{texgyretermes-math.otf}
+\newcommand{\ReportFontPath}{/Users/jinana/Library/Containers/com.kingsoft.wpsoffice.mac/Data/.kingsoft/office6/data/fonts/online_ext_font_cache/}
+\setCJKmainfont{HYShuSongErKW.ttf}[Path=\ReportFontPath,BoldFont=HYZhongHeiKW.ttf]
+\xeCJKsetup{CJKmath=true}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{大学物理实验报告}
+\fancyhead[R]{哈尔滨工业大学（深圳）}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\abovedisplayskip}{5pt}
+\setlength{\belowdisplayskip}{5pt}
+\setlength{\abovedisplayshortskip}{4pt}
+\setlength{\belowdisplayshortskip}{4pt}
+\renewcommand{\section}[1]{\par\addvspace{10pt}{\large\bfseries #1}\par\nobreak}
+\renewcommand{\subsection}[1]{\par\addvspace{5pt}{\bfseries #1}\par\nobreak}
+\begin{document}
+\fontsize{10.5pt}{15pt}\selectfont
+\setcounter{page}{4}
+\input{body.tex}
+\end{document}
