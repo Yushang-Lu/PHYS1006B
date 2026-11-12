@@ -1,0 +1,30 @@
+{
+  "source": "../../resource/实验2 光的等厚干涉现象与应用_20260916122736 2.pdf",
+  "wavelength_nm": 589.30,
+  "wavelength_source": "大学物理实验B指导书0903.pdf，印刷页29，操作要点1",
+  "position_unit": "mm",
+  "rings": [
+    {"order": 31, "left": "25.427", "right": "17.172"},
+    {"order": 30, "left": "25.342", "right": "17.235"},
+    {"order": 29, "left": "25.279", "right": "17.298"},
+    {"order": 28, "left": "25.200", "right": "17.370"},
+    {"order": 27, "left": "25.146", "right": "17.436"},
+    {"order": 26, "left": "25.062", "right": "17.511"},
+    {"order": 25, "left": "25.011", "right": "17.574"},
+    {"order": 24, "left": "24.929", "right": "17.651"},
+    {"order": 23, "left": "24.869", "right": "17.721"},
+    {"order": 22, "left": "24.779", "right": "17.809"},
+    {"order": 21, "left": "24.698", "right": "17.879"},
+    {"order": 20, "left": "24.616", "right": "17.960"},
+    {"order": 19, "left": "24.541", "right": "18.044"},
+    {"order": 18, "left": "24.412", "right": "18.128"},
+    {"order": 17, "left": "24.372", "right": "18.219"},
+    {"order": 16, "left": "24.279", "right": "18.316"},
+    {"order": 15, "left": "24.197", "right": "18.395"},
+    {"order": 14, "left": "24.086", "right": "18.489"},
+    {"order": 13, "left": "23.995", "right": "18.600"},
+    {"order": 12, "left": "23.899", "right": "18.702"},
+    {"order": 11, "left": "23.782", "right": "18.793"},
+    {"order": 10, "left": "23.681", "right": "18.901"}
+  ]
+}
