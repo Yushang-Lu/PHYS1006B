@@ -1,0 +1,27 @@
+\documentclass[10pt]{article}
+\usepackage[paperwidth=595bp,paperheight=841.476bp,left=90bp,right=65bp,top=94bp,bottom=64bp,headheight=18bp,headsep=30bp]{geometry}
+\usepackage{fontspec,xeCJK,amsmath,graphicx,booktabs,array,fancyhdr,fix-cm}
+\setmainfont{texgyretermes-regular.otf}[BoldFont=texgyretermes-bold.otf,ItalicFont=texgyretermes-italic.otf]
+\setCJKmainfont{FandolSong-Regular.otf}[BoldFont=FandolHei-Regular.otf]
+\setCJKsansfont{FandolHei-Regular.otf}[BoldFont=FandolHei-Bold.otf]
+\newCJKfontfamily{\HeaderFont}{FandolKai-Regular.otf}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\HeaderFont\fontsize{12bp}{14bp}\selectfont 大学物理实验报告}
+\fancyhead[R]{\HeaderFont\fontsize{12bp}{14bp}\selectfont 哈尔滨工业大学(深圳)}
+\fancyfoot[R]{\fontsize{9bp}{11bp}\selectfont\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5bp}
+\setlength{\abovedisplayskip}{5bp}
+\setlength{\belowdisplayskip}{5bp}
+\setlength{\abovedisplayshortskip}{3bp}
+\setlength{\belowdisplayshortskip}{3bp}
+\newcommand{\ReportSection}[1]{\par\addvspace{8bp}{\sffamily\bfseries\fontsize{12bp}{16bp}\selectfont #1}\par\nobreak}
+\newcommand{\ReportSubsection}[1]{\par\addvspace{5bp}{\bfseries #1}\par\nobreak}
+\newcommand{\ReportFigure}[2]{\par{\centering\includegraphics[width=\linewidth]{#1}\par}\vspace{-4bp}{\centering\fontsize{9bp}{12bp}\selectfont #2\par}}
+\begin{document}
+\fontsize{10bp}{15bp}\selectfont
+\setcounter{page}{5}
+\input{body.tex}
+\end{document}
