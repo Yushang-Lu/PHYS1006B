@@ -1,0 +1,129 @@
+\documentclass{article}
+\usepackage[paperwidth=595bp,paperheight=841.476bp,margin=0bp]{geometry}
+\usepackage{fontspec,xeCJK,amsmath,graphicx,booktabs}
+\usepackage{unicode-math}
+\setmathfont{texgyretermes-math.otf}
+\usepackage[absolute,overlay]{textpos}
+\setmainfont{Times New Roman}
+\newcommand{\ReportFontPath}{/Users/jinana/Library/Containers/com.kingsoft.wpsoffice.mac/Data/.kingsoft/office6/data/fonts/online_ext_font_cache/}
+\setCJKmainfont{HYShuSongErKW.ttf}[Path=\ReportFontPath,BoldFont=HYZhongHeiKW.ttf]
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5bp}
+\setlength{\TPHorizModule}{1bp}
+\setlength{\TPVertModule}{1bp}
+\textblockorigin{0bp}{0bp}
+\newenvironment{AnswerBlock}[1]{%
+\begin{textblock*}{415bp}(90bp,#1bp)
+\fontsize{10.5bp}{14.5bp}\selectfont
+\setlength{\abovedisplayskip}{5bp}
+\setlength{\belowdisplayskip}{5bp}
+\setlength{\abovedisplayshortskip}{3bp}
+\setlength{\belowdisplayshortskip}{3bp}
+}{\end{textblock*}}
+\input{values.tex}
+\begin{document}
+\begin{AnswerBlock}{225}
+\fontsize{10bp}{13bp}\selectfont
+\setlength{\parskip}{3bp}
+\textbf{1. 公式法与反射镜法}
+
+取 $K=\VK\times10^{-4}\,\mathrm{T/A}$，记 $q=e/m$。用
+\[
+q_i=\frac{2U}{K^2I_i^2r_i^2},\qquad
+\overline q=\frac{1}{n}\sum_{i=1}^{n}q_i,\qquad
+E=\frac{|\overline q-q_{\rm ref}|}{q_{\rm ref}}\times100\%.
+\]
+公式法 $r_i=(61.04+10(i-1))/2\,\mathrm{mm}$；
+反射镜法 $r_i=(S_i+1.42)/2\,\mathrm{mm}$，计算时换算为 m。
+以 $q_{\rm ref}=\VReference\times10^{11}\,\mathrm{C/kg}$ 比较：
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+方法 & $\overline q/(10^{11}\,\mathrm{C/kg})$ & 相对误差 $E$\\
+\midrule
+公式法 & \VFormulaMean & \VFormulaError\%\\
+反射镜法 & \VMirrorMean & \VMirrorError\%\\
+\bottomrule
+\end{tabular}
+\end{center}
+\textbf{2. 作图法}
+
+以 $I^2$ 为横坐标、$U$ 为纵坐标，对全部九点作带截距的最小二乘拟合：
+\[
+U=CI^2+b,\qquad C=\VSlope\,\mathrm{V/A^2},\quad
+b=\VIntercept\,\mathrm V,\quad R_{\rm fit}^2=\VFitQuality.
+\]
+\begin{center}
+\includegraphics[width=300bp]{fit.pdf}
+\end{center}
+\textbf{假设试算：}取电子轨迹半径 $r=\VAssumedRadius\,\mathrm{mm}$（非实测值），则
+\[
+q_{\text{图}}=\frac{2C}{K^2r^2}
+=\VGraphValue\times10^{11}\,\mathrm{C/kg},\qquad E_{\text{图}}=\VGraphError\%.
+\]
+此值仅为该半径假设下的计算结果；截距偏离零，提示固定半径条件或电压偏置需核查。
+
+\textbf{3. 不确定度}
+
+各输入量独立时，单次结果的合成标准不确定度满足
+\[
+\frac{u_c(q)}q=
+\sqrt{\left(\frac{u(U)}U\right)^2+
+4\left(\frac{u(I)}I\right)^2+
+4\left(\frac{u(r)}r\right)^2+
+4\left(\frac{u(K)}K\right)^2}.
+\]
+反射镜法 $u(r)=\tfrac12\sqrt{u^2(S_i)+u^2(S_0)}$。
+数值不确定度待仪器精度核定；共用 $S_0$、电压和 $K$ 的误差不能靠组数增加消除。
+\end{AnswerBlock}
+\null\newpage
+\begin{AnswerBlock}{100}
+固定电压的数据表现为电流减小、轨迹半径增大，与 $r\propto I^{-1}$ 的趋势一致。
+两种直接测量法均得到 $10^{11}\,\mathrm{C/kg}$ 量级的荷质比，反射镜法平均值更接近公认值。
+
+公式法第4组偏高；反射镜法后几组逐渐偏高，第8组相对偏差约 \VLastMirrorError\%。
+平均值接近公认值并不代表各组无系统偏差。
+视差、光束宽度、端点判定、轨迹偏离线圈均匀区及电压漂移均可能影响结果。
+应固定观察方向、保持实物与镜像三点一线，选择光束中心读数并监测加速电压；
+在相同条件下重复测量可估计随机波动。
+\end{AnswerBlock}
+\begin{AnswerBlock}{350}
+\textbf{1. 其他测半径方法及比较}
+
+可在轨迹平面放置已知长度标尺，沿垂直方向摄影，标定像素尺度后选取多个轨迹点拟合圆。
+多点拟合能减小单个端点判定的随机误差，但需控制透视、镜头畸变及标尺与轨迹不共面造成的偏差。
+
+也可测弦长 $l$ 与弓高 $h$，由
+\[
+r=\frac{l^2}{8h}+\frac h2
+\]
+求半径，适用于只看清部分圆弧的情形，但小弓高时对 $h$ 的读数误差敏感。
+直接量直径较简便；反射镜法可通过三点一线减小视差，但仍受光束宽度与对准精度限制。
+
+\textbf{2. 电子束不垂直于磁场}
+
+设速度与磁场夹角为 $\theta$，垂直分量引起圆周运动，平行分量引起沿磁场方向的匀速运动，
+轨迹为螺旋线（平行入射时退化为直线）。螺旋半径为
+\[
+r=\frac{mv\sin\theta}{eB}.
+\]
+若仍以总加速电压及螺旋半径代入圆轨迹公式，则
+\[
+q_{\text{算}}=\frac{2U}{B^2r^2}=\frac{q_{\text{真}}}{\sin^2\theta},
+\]
+故非垂直入射使结果偏大；若读到的是投影尺寸，还会叠加几何误差。
+
+\textbf{3. 电压、电流及半径误差的影响}
+
+在 $K$ 不变时，对 $q=2U/(K^2I^2r^2)$ 作一阶微分：
+\[
+\frac{\Delta q}{q}\approx
+\frac{\Delta U}{U}-2\frac{\Delta I}{I}-2\frac{\Delta r}{r}.
+\]
+电压读数偏大使结果偏大，电流或半径读数偏大使结果偏小。
+相同大小的相对误差下，电流和半径的影响系数均为电压的两倍；
+不确定度应按平方和合成，不能用正负误差抵消。
+\end{AnswerBlock}
+\null
+\end{document}
