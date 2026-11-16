@@ -1,0 +1,94 @@
+\documentclass{article}
+\usepackage[paperwidth=595.3bp,paperheight=841.9bp,margin=0bp]{geometry}
+\usepackage{fontspec,xeCJK,amsmath,graphicx,booktabs,eso-pic,fix-cm}
+\setmainfont{texgyretermes-regular.otf}[BoldFont=texgyretermes-bold.otf,ItalicFont=texgyretermes-italic.otf]
+\setCJKmainfont{FandolSong-Regular.otf}[BoldFont=FandolHei-Regular.otf]
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3bp}
+\setlength{\abovedisplayskip}{3bp}
+\setlength{\belowdisplayskip}{3bp}
+\setlength{\abovedisplayshortskip}{2bp}
+\setlength{\belowdisplayshortskip}{2bp}
+\newcommand{\PlaceBlock}[3]{%
+  \AddToShipoutPictureFG*{\AtPageLowerLeft{%
+    \setlength{\unitlength}{1bp}%
+    \put(90,#1){\makebox(0,0)[lt]{\begin{minipage}[t]{415.3bp}%
+      \vspace{0pt}\fontsize{#2bp}{13bp}\selectfont #3%
+    \end{minipage}}}%
+  }}%
+}
+\input{numbers.tex}
+\begin{document}
+\PlaceBlock{676}{9.3}{
+灯丝电压2.00 V，第一栅压2.10 V；原记录电压符号$V$下文记为$U$。
+\par
+\includegraphics[width=\linewidth]{curves.pdf}
+\vspace{-5bp}
+\par
+左图为实测点及保形插值连线，峰顶作局部二次拟合；右图为峰位及线性拟合。
+每峰取实测最大值点及左右各两点，平顶取先出现的最大值点为中心$U_c$：
+\[
+ I_A=a(U-U_c)^2+b(U-U_c)+c,\qquad U_n=U_c-\frac{b}{2a}.
+\]
+\vspace{-4bp}
+{\centering
+\setlength{\tabcolsep}{6.1bp}
+\begin{tabular}{@{}c*{7}{r}@{}}
+\toprule
+$U_{G2A}/\mathrm{V}$ & $U_1$ & $U_2$ & $U_3$ & $U_4$ & $U_5$ & $U_6$ & $U_7$ \\
+\midrule
+\PeakRows
+\bottomrule
+\end{tabular}
+\par}
+\vspace{7bp}
+各峰电压单位为V。逐差法将前3峰与后3峰配对；最小二乘法拟合$U_n=A+nU_0$：
+\[
+ U_0^{(\text{逐差})}=\frac{(U_5-U_1)+(U_6-U_2)+(U_7-U_3)}{12},\qquad
+ U_0^{(\text{拟合})}=\frac{\sum_{n=1}^{7}(n-4)(U_n-\overline U)}
+ {\sum_{n=1}^{7}(n-4)^2}.
+\]
+{\fontsize{8.8bp}{12bp}\selectfont\FitLines\par}
+相对误差按指导书公认值11.7 V计算：$\delta=|U_0-11.7|/11.7\times100\%$。
+{\centering
+\setlength{\tabcolsep}{10bp}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+$U_{G2A}/\mathrm{V}$ & 逐差法/V & $\delta$/\% & 最小二乘法/V & $\delta$/\% \\
+\midrule
+\ResultRows
+\bottomrule
+\end{tabular}
+\par}
+}
+\PlaceBlock{219}{9.5}{
+两种方法均得到氩的第一激发电位约11.7 V，与指导书公认值相符。电流随加速电压
+反复出现峰谷，表明电子与氩原子发生具有特定能量损失的非弹性碰撞，支持原子能级分立。
+拒斥电压由7.20 V降至6.70 V后，同一加速电压下的电流总体增大，峰位略向低电压移动，
+而拟合斜率基本不变。
+\par
+峰间距随序号总体增大，线性斜率反映本测量区间的平均间距。
+0.5 V步进及峰顶较平坦限制峰位定位；电子能量分散、碰撞概率随能量变化和电场非均匀性
+也会使峰距偏离理想值。局部拟合可细化峰位，但不能消除这些影响。
+}
+\null\newpage
+\PlaceBlock{661}{10.5}{
+\textbf{1.}\quad
+在本实验条件下，电子达到第一激发能附近便容易发生非弹性碰撞并损失能量，
+随后重新加速并重复这一过程，因此曲线主要呈现第一激发能对应的周期。
+更高激发通道可能存在，但在本装置条件下难以从曲线中分辨。
+\par\vspace{15bp}
+\textbf{2.}\quad
+同类相邻峰或谷的电压差都近似为第一激发电位；接触电势等引起的固定偏移，
+在作差或带截距拟合中可以抵消。峰、谷的绝对位置和形状受拒斥电压及电子能量分布影响，
+所以两种取值可能有差别。应选取清晰的同类极值并统一拟合方法；平顶的峰位定位较敏感，
+不能将相邻的一个峰与一个谷相减作为第一激发电位。
+\par\vspace{15bp}
+\textbf{3.}\quad
+加速电场增强时，空间电荷对电子输运的限制减弱，板极收集电流的背景升高。
+电子初速度以及碰撞位置、次数存在分散，处于波谷时仍有一部分电子能克服拒斥电场到达板极，
+因此谷值电流不为零，并随加速电压增大而总体抬升。
+}
+\null\newpage
+\end{document}

@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage[paperwidth=595.3bp,paperheight=841.9bp,margin=0bp]{geometry}
+\usepackage{fontspec,eso-pic}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\unitlength}{1bp}
+\defaultfontfeatures{Ligatures=NoCommon}
+\setmainfont{TimesNewRomanPSMT.ttf}[Path=fonts/]
+\newfontfamily{\Times}{TimesNewRomanPSMT.ttf}[Path=fonts/]
+\newfontfamily{\TimesBold}{TimesNewRomanPS-BoldMT.ttf}[Path=fonts/]
+\newfontfamily{\Italic}{TimesNewRomanPS-ItalicMT.ttf}[Path=fonts/]
+\newfontfamily{\Song}{HYShuSongErKW.ttf}[Path=fonts/]
+\newfontfamily{\SongHeavy}{HYShuSongErKW.ttf}[Path=fonts/,FakeBold=2.86]
+\newfontfamily{\Hei}{HYZhongHeiKW.ttf}[Path=fonts/,FakeBold=2.86]
+\newfontfamily{\Kai}{HYKaiTiKW.ttf}[Path=fonts/]
+\newfontfamily{\KaiHeavy}{HYKaiTiKW.ttf}[Path=fonts/,FakeBold=2.86]
+\newfontfamily{\Deng}{HYZhongDengXianKW.ttf}[Path=fonts/]
+\newcommand{\ReportPage}[1]{%
+  \AddToShipoutPictureFG*{\AtPageLowerLeft{\setlength{\unitlength}{1bp}#1}}%
+  \null\newpage
+}
+\begin{document}
+\input{template.tex}
+\end{document}
