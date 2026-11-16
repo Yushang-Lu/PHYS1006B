@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage[paperwidth=595.3bp,paperheight=841.9bp,margin=0bp]{geometry}
+\usepackage{fontspec,xeCJK,amsmath,graphicx,eso-pic,array}
+\setmainfont{texgyretermes-regular.otf}
+\setCJKmainfont{FandolSong-Regular.otf}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\unitlength}{1bp}
+\input{numbers.tex}
+\newcommand{\Block}[3]{\put(#1,#2){\makebox(0,0)[lt]{%
+  \begin{minipage}[t]{415bp}\fontsize{10.5bp}{16bp}\selectfont #3\end{minipage}}}}
+\begin{document}
+\AddToShipoutPictureFG*{\AtPageLowerLeft{
+\Block{90}{700}{以 $N$ 表示半周期内的光拍波数，$n_\theta=\Density\,\mathrm{mm}^{-1}$。由半周期内路程为 $2A$，得
+\[
+ A=\frac{N}{2n_\theta}=\frac{N}{\Denominator}\,\mathrm{mm}=\Scale N\,\mu\mathrm{m}.
+\]
+共振测量：$f_0=\ResFrequency\,\mathrm{Hz}$，$N_0=\ResCount$，
+故 $A_0=\ResAmplitude\,\mu\mathrm{m}$。}
+\put(90,570){\makebox(0,0)[lb]{\fontsize{8.2bp}{12bp}\selectfont
+\setlength{\tabcolsep}{0pt}\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{|*{10}{>{\centering\arraybackslash}p{40.9bp}|}}\hline
+$f/\mathrm{Hz}$ & \FrequencyRow\\\hline
+$N$ & \CountRow\\\hline
+$A/\mu\mathrm{m}$ & \AmplitudeRow\\\hline
+\end{tabular}}}
+\put(94,420){\includegraphics[width=407bp,height=145bp]{curve.pdf}}
+\Block{90}{395}{扫频时，音叉振幅先增大后减小，呈现共振峰；本组测点在
+$\PeakFrequency\,\mathrm{Hz}$ 处振幅最大，为 $\PeakAmplitude\,\mu\mathrm{m}$。\par
+\vspace{5bp}
+误差可能来自首尾分数波的估读、驱动频率与幅度的波动，以及音叉尚未达到稳态时读数。应保持驱动幅度不变，待波形稳定后计数。}
+\Block{90}{145}{1.\ 音叉振幅既与驱动频率有关，也与驱动力幅度有关。保持“幅度调节”旋钮不变，才能比较相同驱动幅度下的振幅—频率关系。\par
+\vspace{4bp}
+2.\ 由 $d\sin\theta=\lambda$，一级衍射光的频移为
+$\Delta f=v\sin\theta/\lambda=v/d$，波长消去。因此 $A=Nd/2$ 只取决于波数和光栅常数，与激光颜色无关。}
+}}
+\null
+\end{document}

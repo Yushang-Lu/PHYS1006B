@@ -1,0 +1,14 @@
+[
+  {
+    "page": 1,
+    "mean_absolute_channel_error_0_255": 0.1242777880820325
+  },
+  {
+    "page": 2,
+    "mean_absolute_channel_error_0_255": 0.19249677410347998
+  },
+  {
+    "page": 3,
+    "mean_absolute_channel_error_0_255": 0.27433033978113763
+  }
+]

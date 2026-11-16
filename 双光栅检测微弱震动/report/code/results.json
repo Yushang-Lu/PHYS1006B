@@ -1,0 +1,65 @@
+{
+  "grating_density_per_mm": "100",
+  "resonance": {
+    "frequency_hz": "503.890",
+    "half_period_wave_count": "27.5",
+    "amplitude_mm": "0.1375",
+    "amplitude_um": "137.5"
+  },
+  "sweep": [
+    {
+      "frequency_hz": "503.490",
+      "half_period_wave_count": "3.0",
+      "amplitude_mm": "0.015",
+      "amplitude_um": "15"
+    },
+    {
+      "frequency_hz": "503.590",
+      "half_period_wave_count": "4.25",
+      "amplitude_mm": "0.02125",
+      "amplitude_um": "21.25"
+    },
+    {
+      "frequency_hz": "503.690",
+      "half_period_wave_count": "6.5",
+      "amplitude_mm": "0.0325",
+      "amplitude_um": "32.5"
+    },
+    {
+      "frequency_hz": "503.790",
+      "half_period_wave_count": "8.5",
+      "amplitude_mm": "0.0425",
+      "amplitude_um": "42.5"
+    },
+    {
+      "frequency_hz": "503.840",
+      "half_period_wave_count": "10.5",
+      "amplitude_mm": "0.0525",
+      "amplitude_um": "52.5"
+    },
+    {
+      "frequency_hz": "503.990",
+      "half_period_wave_count": "21",
+      "amplitude_mm": "0.105",
+      "amplitude_um": "105"
+    },
+    {
+      "frequency_hz": "504.090",
+      "half_period_wave_count": "9.75",
+      "amplitude_mm": "0.04875",
+      "amplitude_um": "48.75"
+    },
+    {
+      "frequency_hz": "504.190",
+      "half_period_wave_count": "6",
+      "amplitude_mm": "0.03",
+      "amplitude_um": "30"
+    },
+    {
+      "frequency_hz": "504.290",
+      "half_period_wave_count": "4.75",
+      "amplitude_mm": "0.02375",
+      "amplitude_um": "23.75"
+    }
+  ]
+}
